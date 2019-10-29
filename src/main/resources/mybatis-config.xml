@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--在控制台输出显示日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+     <!--配置别名-->
+    <typeAliases>
+        <!--类型的别名就是类名-->
+        <package name="com.team.house.entity"></package>
+    </typeAliases>
+
+    <!--添加分页的插件-->
+    <plugins>
+        <!-- com.github.pagehelper为PageHelper类所在包名 -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--分页：首页：不能上一页
+            尾页：不能下一页
+            当到首页的时候，再上一页，就不会传null值
+            当到尾页的时候，再下一页，就不会传null值-->
+            <property name="reasonable" value="true"></property>
+        </plugin>
+    </plugins>
+
+
+
+</configuration>
